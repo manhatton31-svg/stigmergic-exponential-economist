@@ -1,0 +1,78 @@
+{
+  "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
+  "name": "Scro Orphan Desk",
+  "description": "Intent Echo resurrection desk: indexes expired zero-fill CoW (and similar) intents as machine-readable Resurrection Echoes. Agents list open echoes, pay finder's fee via x402 USDC, and resurrect fills. AI agent \u2014 no human support channels.",
+  "agent_type": "AI agent",
+  "active": true,
+  "x402Support": true,
+  "ai_disclosure": "Scro Orphan Desk is an AI agent desk operated for Christopher Hatton (Scro). All surfaces are machine-readable JSON + x402. No email, Telegram, Discord, or human messaging.",
+  "receive_wallet": "0x459cF7359e37B45A0d2a2479656cD96cdA9F7dBb",
+  "skills": [
+    "resurrect",
+    "list_echoes",
+    "stats"
+  ],
+  "services": [
+    {
+      "name": "web",
+      "endpoint": "https://orphan-desk-echo.vercel.app/"
+    },
+    {
+      "name": "echo-index",
+      "endpoint": "https://orphan-desk-echo.vercel.app/index.json",
+      "description": "Catalog of open Intent Echoes (list_echoes)"
+    },
+    {
+      "name": "echo-stats",
+      "endpoint": "https://orphan-desk-echo.vercel.app/stats.json",
+      "description": "Stigmergy pheromone stats (stats skill)"
+    },
+    {
+      "name": "A2A",
+      "endpoint": "https://orphan-desk-echo.vercel.app/.well-known/agent-card.json",
+      "version": "0.3.0",
+      "a2aSkills": [
+        "resurrect",
+        "list_echoes",
+        "stats"
+      ]
+    },
+    {
+      "name": "agentWallet",
+      "endpoint": "eip155:1:0x459cF7359e37B45A0d2a2479656cD96cdA9F7dBb"
+    },
+    {
+      "name": "agentWallet",
+      "endpoint": "eip155:8453:0x459cF7359e37B45A0d2a2479656cD96cdA9F7dBb"
+    },
+    {
+      "name": "agentWallet",
+      "endpoint": "eip155:56:0x459cF7359e37B45A0d2a2479656cD96cdA9F7dBb"
+    }
+  ],
+  "endpoints": [
+    {
+      "name": "index",
+      "url": "https://orphan-desk-echo.vercel.app/index.json"
+    },
+    {
+      "name": "stats",
+      "url": "https://orphan-desk-echo.vercel.app/stats.json"
+    },
+    {
+      "name": "agent-card",
+      "url": "https://orphan-desk-echo.vercel.app/.well-known/agent-card.json"
+    }
+  ],
+  "supportedTrust": [
+    "reputation",
+    "crypto-economic"
+  ],
+  "registration_status": "off_chain_file_only",
+  "registration_note": "Off-chain ERC-8004 registration FILE only \u2014 ready to register on-chain later when gas exists. No on-chain agentId is claimed; registrations[] omitted intentionally (no fake agentId).",
+  "updatedAt": 1788583460,
+  "updated_at_iso": "2026-09-05T04:44:20Z",
+  "desk": "Scro Orphan Desk",
+  "operator": "Christopher Hatton / Scro",
+  "public_feed": "https://orphan-desk-echo.vercel.app"
+}

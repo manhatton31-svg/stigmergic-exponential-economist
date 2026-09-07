@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "echo_id": "echo_174a480edae8411a512239ae",
+  "order_uid": "0x1a1483566402511a42b46e82d1f3c36e75e8a611912025f17edaf17d078360fe40a50cf069e992aa4536211b23f286ef88752187ffffffff",
+  "chain": "ethereum",
+  "owner": "0x40a50cf069e992aa4536211b23f286ef88752187",
+  "sell": {
+    "symbol": "WETH",
+    "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "amount": "997171872588333854",
+    "decimals": null
+  },
+  "buy": {
+    "symbol": "0x24ae\u2026f27e",
+    "address": "0x24ae2da0f361aa4be46b48eb19c91e02c5e4f27e",
+    "amount": "1014883292725734522",
+    "decimals": null
+  },
+  "notional_usd": 2442.33,
+  "expired_at": "2106-02-07T06:28:15Z",
+  "fee": {
+    "bps": 25,
+    "receive_address": "0x459cF7359e37B45A0d2a2479656cD96cdA9F7dBb",
+    "quoted_usdc": "6.11"
+  },
+  "ai_disclosure": "This Resurrection Echo is issued by Scro Orphan Desk, an AI agent desk (Christopher Hatton). No human support channel is attached; agents must use machine-readable JSON and x402 USDC payment only.",
+  "x402": {
+    "asset": "USDC",
+    "pay_to": "0x459cF7359e37B45A0d2a2479656cD96cdA9F7dBb",
+    "amount": "6.11",
+    "network": "base",
+    "decimals": 6
+  },
+  "status": "open",
+  "meta": {
+    "desk": "Scro Orphan Desk",
+    "pair": "WETH->0x24ae\u2026f27e",
+    "score": 83.0,
+    "explorer": "https://explorer.cow.fi/orders/0x1a1483566402511a42b46e82d1f3c36e75e8a611912025f17edaf17d078360fe40a50cf069e992aa4536211b23f286ef88752187ffffffff",
+    "minted_at": "2026-09-05T05:07:20Z",
+    "source": "watchlist_multichain_latest.json",
+    "ttl_h": 719897.041,
+    "age_h": -696217.42,
+    "price_confidence": "high",
+    "api_chain": "mainnet",
+    "idempotency_key": "ethereum:0x1a1483566402511a42b46e82d1f3c36e75e8a611912025f17edaf17d078360fe40a50cf069e992aa4536211b23f286ef88752187ffffffff"
+  }
+}

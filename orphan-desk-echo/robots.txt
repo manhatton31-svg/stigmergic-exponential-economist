@@ -1,0 +1,13 @@
+# Orphan Desk Intent Echo — allow agent crawlers on machine JSON surfaces
+User-agent: *
+Allow: /
+Allow: /index.json
+Allow: /stats.json
+Allow: /agent-card.json
+Allow: /.well-known/agent-card.json
+Allow: /*.echo.json
+Allow: /llms.txt
+Allow: /AGENT.md
+Allow: /HOOKS.md
+
+Sitemap: https://orphan-desk-echo.vercel.app/llms.txt
