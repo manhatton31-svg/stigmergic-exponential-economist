@@ -98,6 +98,8 @@
   ],
   "summary": {
     "mirror_files": "landed",
+    "this_repo_pr": "https://github.com/manhatton31-svg/stigmergic-exponential-economist/pull/1",
+    "this_repo_commit": "0a0e875",
     "external_pr_or_issue_url": null,
     "blocker": "Cursor GitHub MCP is authenticated as manhatton31-svg with a personal access token that cannot fork or open issues on foreign repositories (HTTP 403 Resource not accessible by personal access token). Same class of failure as the Box PAT.",
     "maintainer_next_step": "Use submissions/README.md plus submissions/wundercorp-awesome-agents/agent.json from an account that can fork/PR or open issues on the target repos."
