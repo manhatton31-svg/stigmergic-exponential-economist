@@ -14,7 +14,8 @@
     "HOOKS.md",
     "robots.txt",
     ".well-known/agent-card.json",
-    "*.echo.json"
+    "*.echo.json",
+    "directory/"
   ],
   "echo_layout": "flat",
   "notes": [
