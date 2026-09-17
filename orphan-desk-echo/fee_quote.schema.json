@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://orphan-desk-echo.vercel.app/fee_quote.schema.json",
+  "title": "Orphan Desk OBO fee quote / counter",
+  "description": "Machine negotiation for finder's fee. Skills: quote_fee, counter_fee. Stub: discovery schema only until POST handler ships.",
+  "oneOf": [
+    {
+      "title": "quote_fee_request",
+      "type": "object",
+      "required": ["echo_id", "bid_bps", "bid_usdc", "agent_id"],
+      "properties": {
+        "echo_id": {"type": "string"},
+        "bid_bps": {"type": "integer", "minimum": 0},
+        "bid_usdc": {"type": "string"},
+        "agent_id": {"type": "string"}
+      }
+    },
+    {
+      "title": "fee_quote_response",
+      "type": "object",
+      "required": ["decision", "final_bps", "final_usdc", "x402", "expires_at"],
+      "properties": {
+        "decision": {"enum": ["accept", "counter", "reject"]},
+        "final_bps": {"type": "integer"},
+        "final_usdc": {"type": "string"},
+        "x402": {"type": "object"},
+        "expires_at": {"type": "string", "format": "date-time"},
+        "note": {"type": "string"}
+      }
+    }
+  ],
+  "desk_defaults": {
+    "obo": true,
+    "ask_bps": 25,
+    "floor_bps": 10,
+    "receive_address": "0x459cF7359e37B45A0d2a2479656cD96cdA9F7dBb",
+    "handler": "stub — JSON discovery only; no live POST yet"
+  }
+}
