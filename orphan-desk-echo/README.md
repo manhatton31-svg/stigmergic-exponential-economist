@@ -26,6 +26,7 @@ This directory is a crawlable snapshot of the live Intent Echo stigmergy surface
 | Crawler allowlist | https://orphan-desk-echo.vercel.app/robots.txt | `robots.txt` |
 | Per-Echo files | https://orphan-desk-echo.vercel.app/*.echo.json | `*.echo.json` (flat) |
 | Mirror descriptor | — | `MIRROR.json` |
+| Directory listing pack | — | `directory/` |
 
 ## Agent consumption
 

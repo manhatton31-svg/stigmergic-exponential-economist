@@ -1,0 +1,107 @@
+{
+  "playbook": 8,
+  "kind": "agent_directory_listing",
+  "desk": "Scro Orphan Desk",
+  "audience": "agents",
+  "ai_disclosure": "Scro Orphan Desk is an AI agent desk (Christopher Hatton / Scro). Machine-only public listing pack. No human support channels.",
+  "policy": {
+    "human_channels": false,
+    "paid_listings": false,
+    "spam": false,
+    "notes": [
+      "Free public directories only.",
+      "One attempt per target from this environment.",
+      "No email, Telegram, Discord, or other human outreach."
+    ]
+  },
+  "listing": {
+    "slug": "scro-orphan-desk",
+    "name": "Scro Orphan Desk",
+    "category": "defi",
+    "homepage_url": "https://orphan-desk-echo.vercel.app/",
+    "agent_card_url": "https://orphan-desk-echo.vercel.app/.well-known/agent-card.json",
+    "agent_json_url": "https://orphan-desk-echo.vercel.app/agent-card.json",
+    "source_json": "submissions/wundercorp-awesome-agents/agent.json"
+  },
+  "attempted_at": "2026-09-15T00:47:00Z",
+  "authenticated_as": {
+    "github_mcp": {
+      "login": "manhatton31-svg",
+      "id": 286506158,
+      "profile_url": "https://github.com/manhatton31-svg",
+      "note": "Cursor GitHub MCP connection. Same account as the Box PAT mentioned in playbook context."
+    },
+    "gh_cli": {
+      "hosts_yml_account": "cursor",
+      "token_kind": "GitHub App installation token (ghs_)",
+      "user_endpoint": "403 Resource not accessible by integration",
+      "note": "This environment treats gh as read-only. Write attempts used GitHub MCP, not gh."
+    }
+  },
+  "attempts": [
+    {
+      "target": "wundercorp/awesome-agents",
+      "url": "https://github.com/wundercorp/awesome-agents",
+      "kind": "fork",
+      "proposed_path": "agents/defi/scro-orphan-desk/agent.json",
+      "status": "blocked",
+      "http_status": 403,
+      "error": "POST https://api.github.com/repos/wundercorp/awesome-agents/forks: 403 Resource not accessible by personal access token []",
+      "result_url": null,
+      "notes": [
+        "Fork is required before a contributor PR can add agents/defi/scro-orphan-desk/agent.json and run validate-catalog + generate-readme.",
+        "Upstream currently has only agents/orchestration; defi would be a new category folder."
+      ]
+    },
+    {
+      "target": "wundercorp/awesome-agents",
+      "url": "https://github.com/wundercorp/awesome-agents",
+      "kind": "issue",
+      "status": "blocked",
+      "http_status": 403,
+      "error": "POST https://api.github.com/repos/wundercorp/awesome-agents/issues: 403 Resource not accessible by personal access token []",
+      "result_url": null,
+      "issue_title": "Add Scro Orphan Desk to agents/defi/scro-orphan-desk",
+      "notes": [
+        "Fallback issue would have included the live agent card URL and the exact agent.json payload."
+      ]
+    },
+    {
+      "target": "aihlp/itinai",
+      "url": "https://github.com/aihlp/itinai",
+      "kind": "issue",
+      "proposed_path": "agents/scro-orphan-desk.yaml",
+      "status": "blocked",
+      "http_status": 403,
+      "error": "POST https://api.github.com/repos/aihlp/itinai/issues: 403 Resource not accessible by personal access token []",
+      "result_url": null,
+      "issue_title": "Add agents/scro-orphan-desk.yaml (A2A agent card)",
+      "notes": [
+        "Requested a2a_config.agent_card_url=https://orphan-desk-echo.vercel.app/.well-known/agent-card.json",
+        "No contact.email (desk has no human channel). contact.url is the public feed."
+      ]
+    },
+    {
+      "target": "caramaschiHG/awesome-ai-agents-2026",
+      "url": "https://github.com/caramaschiHG/awesome-ai-agents-2026",
+      "kind": "issue",
+      "status": "blocked",
+      "http_status": 403,
+      "error": "POST https://api.github.com/repos/caramaschiHG/awesome-ai-agents-2026/issues: 403 Resource not accessible by personal access token []",
+      "result_url": null,
+      "issue_title": "Add Scro Orphan Desk (free listing)",
+      "proposed_entry": "| [Scro Orphan Desk](https://orphan-desk-echo.vercel.app/) | AI agent Intent Echo desk: indexes expired/orphan CoW and Across intents as machine-redeemable Resurrection Echoes. Agents pay finder's fee via x402 USDC. | Free |",
+      "notes": [
+        "One-line/table entry only. Closest existing section is Task and Workflow Agents."
+      ]
+    }
+  ],
+  "summary": {
+    "mirror_files": "landed",
+    "this_repo_pr": "https://github.com/manhatton31-svg/stigmergic-exponential-economist/pull/1",
+    "this_repo_commit": "0a0e875",
+    "external_pr_or_issue_url": null,
+    "blocker": "Cursor GitHub MCP is authenticated as manhatton31-svg with a personal access token that cannot fork or open issues on foreign repositories (HTTP 403 Resource not accessible by personal access token). Same class of failure as the Box PAT.",
+    "maintainer_next_step": "Use submissions/README.md plus submissions/wundercorp-awesome-agents/agent.json from an account that can fork/PR or open issues on the target repos."
+  }
+}

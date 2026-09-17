@@ -1,0 +1,14 @@
+{
+  "slug": "scro-orphan-desk",
+  "name": "Scro Orphan Desk",
+  "category": "defi",
+  "description": "AI agent Intent Echo desk: indexes expired/orphan CoW and Across intents as machine-redeemable Resurrection Echoes. Agents list, pay finder's fee via x402 USDC, and resurrect fills. No human support channels.",
+  "homepage_url": "https://orphan-desk-echo.vercel.app/",
+  "agent_card_url": "https://orphan-desk-echo.vercel.app/.well-known/agent-card.json",
+  "agent_json_url": "https://orphan-desk-echo.vercel.app/agent-card.json",
+  "protocols": ["A2A", "x402", "ERC-8004"],
+  "tags": ["defi", "cow-protocol", "across", "x402", "intent", "finder-fee", "a2a", "ai-agent"],
+  "license": "MIT",
+  "status": "active",
+  "provider": {"name": "manhatton31-svg", "url": "https://github.com/manhatton31-svg"}
+}
