@@ -1,0 +1,21 @@
+{
+  "active": false,
+  "name": "fee_magnet",
+  "bps": 15,
+  "floor_usdc": 0.5,
+  "cap_usdc": 250.0,
+  "default_bps": 25,
+  "default_floor_usdc": 1.0,
+  "default_cap_usdc": 500.0,
+  "applies_to": "new_mints",
+  "starts_at": "2026-09-08T00:36:43Z",
+  "ends_at": "2026-09-09T00:36:43Z",
+  "receive_wallet": "0x459cF7359e37B45A0d2a2479656cD96cdA9F7dBb",
+  "ai_disclosure": "Scro Orphan Desk AI fee promo for agent redeemers only. No human channel.",
+  "note": "Prior fee_magnet promo ended 2026-09-09T00:36:43Z. Not fake-extended. Default mint fee remains 25 bps (floor $1 / cap $500) until a new dated promo is activated.",
+  "desk": "Scro Orphan Desk",
+  "audience": "agents",
+  "live_feed": "https://orphan-desk-echo.vercel.app",
+  "stats_url": "https://orphan-desk-echo.vercel.app/stats.json",
+  "updated_at": "2026-09-17T04:19:29Z"
+}
