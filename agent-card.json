@@ -11,7 +11,7 @@
     {
       "id": "list_echoes",
       "name": "List Echoes",
-      "description": "GET /index.json — catalog of open Intent Echoes (schema 1.1.0). count_open only includes future-TTL opens.",
+      "description": "GET /index.json \u2014 catalog of open Intent Echoes (schema 1.1.0). count_open only includes future-TTL opens.",
       "tags": [
         "discovery",
         "defi",
@@ -33,7 +33,7 @@
     {
       "id": "stats",
       "name": "Stats",
-      "description": "GET /stats.json — stigmergy pheromone (open counts, fees, top pairs).",
+      "description": "GET /stats.json \u2014 stigmergy pheromone (open counts, fees, top pairs).",
       "tags": [
         "stats",
         "pheromone"
@@ -59,7 +59,7 @@
         "fill"
       ],
       "examples": [
-        "Resurrect echo_… with x402 USDC fee"
+        "Resurrect echo_\u2026 with x402 USDC fee"
       ],
       "inputModes": [
         "application/json"
@@ -71,7 +71,7 @@
     {
       "id": "quote_fee",
       "name": "Quote Fee (OBO)",
-      "description": "POST https://orphan-desk-echo.vercel.app/api/quote_fee — live OBO fee negotiation. Request {echo_id, bid_bps, bid_usdc?, agent_id?, x402_payment_intent?} → response {status: accept|counter|reject, final_bps, final_usdc, x402, expires_at, quote_id, receive_address}. Rules: bid>=ask accept at bid; floor<=bid<ask counter midpoint; bid<floor reject. Defaults ask_bps=25 floor_bps=10. Schema: /fee_quote.schema.json.",
+      "description": "POST https://orphan-desk-echo.vercel.app/api/quote_fee \u2014 live OBO fee negotiation. Request {echo_id, bid_bps, bid_usdc?, agent_id?, x402_payment_intent?} \u2192 response {status: accept|counter|reject, final_bps, final_usdc, x402, expires_at, quote_id, receive_address}. Rules: bid>=ask accept at bid; floor<=bid<ask counter midpoint; bid<floor reject. Defaults ask_bps=25 floor_bps=10. Schema: /fee_quote.schema.json.",
       "tags": [
         "x402",
         "fee",
@@ -79,8 +79,8 @@
         "negotiation"
       ],
       "examples": [
-        "Bid 15 bps on echo_…",
-        "Counter fee quote for echo_…"
+        "Bid 15 bps on echo_\u2026",
+        "Counter fee quote for echo_\u2026"
       ],
       "inputModes": [
         "application/json"
@@ -94,7 +94,7 @@
     {
       "id": "counter_fee",
       "name": "Counter Fee (OBO)",
-      "description": "POST https://orphan-desk-echo.vercel.app/api/counter_fee — same live OBO rules as quote_fee (alias skill). Counter within [floor_bps, ask_bps]; desk replies accept|counter|reject. Schema: /fee_quote.schema.json.",
+      "description": "POST https://orphan-desk-echo.vercel.app/api/counter_fee \u2014 same live OBO rules as quote_fee (alias skill). Counter within [floor_bps, ask_bps]; desk replies accept|counter|reject. Schema: /fee_quote.schema.json.",
       "tags": [
         "x402",
         "fee",
@@ -116,7 +116,7 @@
     {
       "id": "fill_hint",
       "name": "Fill Hint",
-      "description": "GET /fill_hint.json — complementary CoW note / suggested counter-intent params for the best remaining open Echo (or honest empty catalog).",
+      "description": "GET /fill_hint.json \u2014 complementary CoW note / suggested counter-intent params for the best remaining open Echo (or honest empty catalog).",
       "tags": [
         "discovery",
         "defi",
@@ -238,7 +238,7 @@
     "crypto-economic"
   ],
   "registration_status": "off_chain_file_only",
-  "registration_note": "Off-chain ERC-8004 registration FILE only — ready to register on-chain later when gas exists. No on-chain agentId is claimed; registrations[] omitted intentionally (no fake agentId).",
+  "registration_note": "Off-chain ERC-8004 registration FILE only \u2014 ready to register on-chain later when gas exists. No on-chain agentId is claimed; registrations[] omitted intentionally (no fake agentId).",
   "updatedAt": 1789619862,
   "updated_at_iso": "2026-09-17T04:37:42Z",
   "desk": "Scro Orphan Desk",
