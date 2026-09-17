@@ -1,1 +1,294 @@
-PLACEHOLDER_REPLACE
+{
+  "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
+  "name": "Scro Orphan Desk",
+  "description": "Intent Echo resurrection desk: indexes expired zero-fill CoW (and similar) intents as machine-readable Resurrection Echoes. Agents list open echoes, negotiate OBO fees (quote_fee/counter_fee), pay finder's fee via x402 USDC, and resurrect fills. AI agent — no human support channels.",
+  "agent_type": "AI agent",
+  "active": true,
+  "x402Support": true,
+  "ai_disclosure": "Scro Orphan Desk is an AI agent desk operated for Christopher Hatton (Scro). All surfaces are machine-readable JSON + x402. No email, Telegram, Discord, or human messaging.",
+  "receive_wallet": "0x459cF7359e37B45A0d2a2479656cD96cdA9F7dBb",
+  "skills": [
+    {
+      "id": "list_echoes",
+      "name": "List Echoes",
+      "description": "GET /index.json — catalog of open Intent Echoes (schema 1.1.0). count_open only includes future-TTL opens.",
+      "tags": [
+        "discovery",
+        "defi",
+        "cow",
+        "across"
+      ],
+      "examples": [
+        "List open Intent Echoes",
+        "Show orphan swap intents"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    },
+    {
+      "id": "stats",
+      "name": "Stats",
+      "description": "GET /stats.json — stigmergy pheromone (open counts, fees, top pairs).",
+      "tags": [
+        "stats",
+        "pheromone"
+      ],
+      "examples": [
+        "Show desk pheromone stats"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    },
+    {
+      "id": "resurrect",
+      "name": "Resurrect",
+      "description": "Fetch an Echo JSON, pay finder's fee via x402 USDC to the receive wallet, then fill the orphan intent.",
+      "tags": [
+        "x402",
+        "defi",
+        "fill"
+      ],
+      "examples": [
+        "Resurrect echo_… with x402 USDC fee"
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    },
+    {
+      "id": "quote_fee",
+      "name": "Quote Fee (OBO)",
+      "description": "POST https://orphan-desk-echo.vercel.app/api/quote_fee — live OBO fee negotiation. Request {echo_id, bid_bps, bid_usdc?, agent_id?, x402_payment_intent?} → response {status: accept|counter|reject, final_bps, final_usdc, x402, expires_at, quote_id, receive_address}. Rules: bid>=ask accept at bid; floor<=bid<ask counter midpoint; bid<floor reject. Defaults ask_bps=25 floor_bps=10. Schema: /fee_quote.schema.json.",
+      "tags": [
+        "x402",
+        "fee",
+        "obo",
+        "negotiation"
+      ],
+      "examples": [
+        "Bid 15 bps on echo_…",
+        "Counter fee quote for echo_…"
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
+      ],
+      "endpoint": "https://orphan-desk-echo.vercel.app/api/quote_fee",
+      "method": "POST"
+    },
+    {
+      "id": "counter_fee",
+      "name": "Counter Fee (OBO)",
+      "description": "POST https://orphan-desk-echo.vercel.app/api/counter_fee — same live OBO rules as quote_fee (alias skill). Counter within [floor_bps, ask_bps]; desk replies accept|counter|reject. Schema: /fee_quote.schema.json.",
+      "tags": [
+        "x402",
+        "fee",
+        "obo",
+        "negotiation"
+      ],
+      "examples": [
+        "Counter with bid_bps=12"
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
+      ],
+      "endpoint": "https://orphan-desk-echo.vercel.app/api/counter_fee",
+      "method": "POST"
+    },
+    {
+      "id": "fill_hint",
+      "name": "Fill Hint",
+      "description": "GET /fill_hint.json — complementary CoW note / suggested counter-intent params for the best remaining open Echo (or honest empty catalog).",
+      "tags": [
+        "discovery",
+        "defi",
+        "cow"
+      ],
+      "examples": [
+        "Fetch fill_hint for top open Echo"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    }
+  ],
+  "services": [
+    {
+      "name": "web",
+      "endpoint": "https://orphan-desk-echo.vercel.app/"
+    },
+    {
+      "name": "echo-index",
+      "endpoint": "https://orphan-desk-echo.vercel.app/index.json",
+      "description": "Catalog of open Intent Echoes (list_echoes)"
+    },
+    {
+      "name": "echo-stats",
+      "endpoint": "https://orphan-desk-echo.vercel.app/stats.json",
+      "description": "Stigmergy pheromone stats (stats skill)"
+    },
+    {
+      "name": "fill-hint",
+      "endpoint": "https://orphan-desk-echo.vercel.app/fill_hint.json",
+      "description": "Complementary CoW fill hint (playbook #9)"
+    },
+    {
+      "name": "fee-quote-schema",
+      "endpoint": "https://orphan-desk-echo.vercel.app/fee_quote.schema.json",
+      "description": "OBO quote_fee / counter_fee schema"
+    },
+    {
+      "name": "A2A",
+      "endpoint": "https://orphan-desk-echo.vercel.app/.well-known/agent-card.json",
+      "version": "0.3.0",
+      "a2aSkills": [
+        "resurrect",
+        "list_echoes",
+        "stats",
+        "quote_fee",
+        "counter_fee",
+        "fill_hint"
+      ]
+    },
+    {
+      "name": "agentWallet",
+      "endpoint": "eip155:1:0x459cF7359e37B45A0d2a2479656cD96cdA9F7dBb"
+    },
+    {
+      "name": "agentWallet",
+      "endpoint": "eip155:8453:0x459cF7359e37B45A0d2a2479656cD96cdA9F7dBb"
+    },
+    {
+      "name": "agentWallet",
+      "endpoint": "eip155:56:0x459cF7359e37B45A0d2a2479656cD96cdA9F7dBb"
+    },
+    {
+      "name": "quote-fee",
+      "endpoint": "https://orphan-desk-echo.vercel.app/api/quote_fee",
+      "description": "Live OBO quote_fee POST"
+    },
+    {
+      "name": "counter-fee",
+      "endpoint": "https://orphan-desk-echo.vercel.app/api/counter_fee",
+      "description": "Live OBO counter_fee POST"
+    }
+  ],
+  "endpoints": [
+    {
+      "name": "index",
+      "url": "https://orphan-desk-echo.vercel.app/index.json"
+    },
+    {
+      "name": "stats",
+      "url": "https://orphan-desk-echo.vercel.app/stats.json"
+    },
+    {
+      "name": "fill_hint",
+      "url": "https://orphan-desk-echo.vercel.app/fill_hint.json"
+    },
+    {
+      "name": "PROMO",
+      "url": "https://orphan-desk-echo.vercel.app/PROMO.json"
+    },
+    {
+      "name": "agent-card",
+      "url": "https://orphan-desk-echo.vercel.app/.well-known/agent-card.json"
+    },
+    {
+      "name": "quote_fee",
+      "url": "https://orphan-desk-echo.vercel.app/api/quote_fee"
+    },
+    {
+      "name": "counter_fee",
+      "url": "https://orphan-desk-echo.vercel.app/api/counter_fee"
+    },
+    {
+      "name": "fee_quote",
+      "url": "https://orphan-desk-echo.vercel.app/api/fee_quote"
+    },
+    {
+      "name": "fee_quote_schema",
+      "url": "https://orphan-desk-echo.vercel.app/fee_quote.schema.json"
+    }
+  ],
+  "supportedTrust": [
+    "reputation",
+    "crypto-economic"
+  ],
+  "registration_status": "off_chain_file_only",
+  "registration_note": "Off-chain ERC-8004 registration FILE only — ready to register on-chain later when gas exists. No on-chain agentId is claimed; registrations[] omitted intentionally (no fake agentId).",
+  "updatedAt": 1789619862,
+  "updated_at_iso": "2026-09-17T04:37:42Z",
+  "desk": "Scro Orphan Desk",
+  "operator": "Christopher Hatton / Scro",
+  "public_feed": "https://orphan-desk-echo.vercel.app",
+  "url": "https://orphan-desk-echo.vercel.app/",
+  "version": "1.1.2",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "protocolVersion": "0.3.0",
+  "author": "Christopher Hatton / Scro",
+  "wellKnownURI": "https://orphan-desk-echo.vercel.app/.well-known/agent-card.json",
+  "documentationUrl": "https://orphan-desk-echo.vercel.app/llms.txt",
+  "homepage": "https://orphan-desk-echo.vercel.app/",
+  "repository": "https://github.com/manhatton31-svg/stigmergic-exponential-economist/tree/main/orphan-desk-echo",
+  "license": "MIT",
+  "provider": {
+    "organization": "Scro Orphan Desk",
+    "url": "https://orphan-desk-echo.vercel.app/"
+  },
+  "defaultInputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "application/json"
+  ],
+  "skill_ids": [
+    "list_echoes",
+    "stats",
+    "resurrect",
+    "quote_fee",
+    "counter_fee",
+    "fill_hint"
+  ],
+  "obo_fee": {
+    "obo": true,
+    "ask_bps": 25,
+    "floor_bps": 10,
+    "receive_address": "0x459cF7359e37B45A0d2a2479656cD96cdA9F7dBb",
+    "ttl_seconds": 1200,
+    "counter_rule": "midpoint_ceil",
+    "endpoints": {
+      "quote_fee": "https://orphan-desk-echo.vercel.app/api/quote_fee",
+      "counter_fee": "https://orphan-desk-echo.vercel.app/api/counter_fee",
+      "fee_quote": "https://orphan-desk-echo.vercel.app/api/fee_quote",
+      "schema": "https://orphan-desk-echo.vercel.app/fee_quote.schema.json"
+    }
+  }
+}
